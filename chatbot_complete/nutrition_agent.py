@@ -1,10 +1,14 @@
+import os
 from pathlib import Path
 
 import chromadb
+from dotenv import load_dotenv
 from agents import (
     Agent,
     function_tool,
 )
+
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
 chroma_path = Path(__file__).parent.parent / "chroma"
 chroma_client = chromadb.PersistentClient(path=str(chroma_path))
@@ -52,4 +56,5 @@ nutrition_agent = Agent(
     If you need to look up calorie information, use the calorie_lookup_tool.
     """,
     tools=[calorie_lookup_tool],
+    model=os.getenv("OPENAI_DEFAULT_MODEL", "gpt-4o-mini"),
 )

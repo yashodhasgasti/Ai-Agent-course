@@ -1,13 +1,14 @@
 import chainlit as cl
 import dotenv
 import os
+from pathlib import Path
 
 from openai.types.responses import ResponseTextDeltaEvent
 
 from agents import Runner, SQLiteSession
 from nutrition_agent import nutrition_agent
 
-dotenv.load_dotenv()
+dotenv.load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
 
 @cl.on_chat_start

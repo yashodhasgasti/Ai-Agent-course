@@ -32,7 +32,7 @@ async def on_message(message: cl.Message):
     try:
         client = AsyncOpenAI(api_key=api_key)
         response = await client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=os.getenv("OPENAI_DEFAULT_MODEL", "gpt-4o-mini"),
             messages=messages,
         )
     except OpenAIError:
