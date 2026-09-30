@@ -42,6 +42,7 @@ async def on_message(message: cl.Message):
 
     await msg.update()
 
+
 @cl.password_auth_callback
 def auth_callback(username: str, password: str):
     if (username, password) == (

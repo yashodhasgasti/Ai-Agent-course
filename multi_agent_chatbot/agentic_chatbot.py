@@ -2,7 +2,7 @@ import os
 
 import chainlit as cl
 import dotenv
-from agents import InputGuardrailTripwireTriggered, Runner, SQLiteSession
+from agents import Runner, SQLiteSession
 from nutrition_agent import exa_search_mcp, nutrition_agent
 from openai.types.responses import ResponseTextDeltaEvent
 
